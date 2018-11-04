@@ -9,6 +9,7 @@ class Category(models.Model):
 class User(AbstractUser):
     age = models.PositiveIntegerField(blank=True, null=True)
     phone = models.PositiveIntegerField(blank=True, null=True)
+    rating = models.IntegerField(blank=True, null=True)
 
 
 class Belonging(models.Model):
@@ -25,6 +26,7 @@ class Belonging(models.Model):
 
 
 class Post(models.Model):
+    title = models.CharField(max_length=100)
     description = models.CharField(max_length=4000)
     posted_by = models.ForeignKey(User, on_delete=models.CASCADE)
     offered_item = models.ForeignKey(
