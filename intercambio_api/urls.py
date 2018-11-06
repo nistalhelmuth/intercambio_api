@@ -17,6 +17,6 @@ ROUTER.register(r'offers', offerViews.OfferViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include(ROUTER.urls)),
-    path('token-auth/', obtain_jwt_token),
+    path('api/v1/', include(ROUTER.urls)),
+    path('api/v1/token-auth/', obtain_jwt_token),
 ]
