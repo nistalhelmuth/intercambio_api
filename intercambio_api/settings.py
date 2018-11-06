@@ -39,7 +39,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'corsheaders',
     'rest_framework',
-    'rest_app',
+    'users',
+    'posts',
+    'belongings',
+    'categories',
+    'offers',
 ]
 
 MIDDLEWARE = [
@@ -89,7 +93,7 @@ DATABASES = {
 }
 
 # Auth User Model
-AUTH_USER_MODEL = 'rest_app.User'
+AUTH_USER_MODEL = 'users.User'
 
 
 # Password validation
@@ -135,3 +139,19 @@ STATIC_URL = '/static/'
 CORS_ORIGIN_WHITELIST = (
     'localhost:3000',
 )
+
+# Rest Framework settings
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    ),
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.BasicAuthentication',
+    ),
+}
+
+JWT_AUTH = {
+    'JWT_RESPONSE_PAYLOAD_HANDLER': 'users.utils.responses.jwt_response_payload_handler'
+}
