@@ -84,10 +84,10 @@ WSGI_APPLICATION = 'intercambio_api.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'intercambio_db',
-        'USER': 'inter_admin',
-        'PASSWORD': 'interpass2018',
-        'HOST': '127.0.0.1',
+        'NAME': 'barterdb',
+        'USER': 'bartermaster',
+        'PASSWORD': 'barteringuvg2018',
+        'HOST': 'barterdb.cfttyiowrz0d.us-east-1.rds.amazonaws.com',
         'PORT': '5432',
     }
 }
