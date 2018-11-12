@@ -9,3 +9,6 @@ class Offer(models.Model):
     date = models.DateField(auto_now=True)
     active = models.BooleanField(default=True)
     offered_in = models.ForeignKey(Post, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.offered_in + ' (' + str(self.id) + ')'
