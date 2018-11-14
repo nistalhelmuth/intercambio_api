@@ -14,6 +14,7 @@ class Belonging(models.Model):
         max_length=10, choices=STATE_CHOICES, default='good')
     belongs_to = models.ForeignKey(User, on_delete=models.CASCADE)
     creation_date = models.DateField(auto_now=True)
+    img = models.URLField(max_length=500, blank=True, null=True)
 
     def __str__(self):
         return self.name + ' (' + str(self.id) + ')'

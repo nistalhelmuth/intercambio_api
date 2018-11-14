@@ -13,6 +13,7 @@ class Post(models.Model):
     category = models.ForeignKey(
         Category, on_delete=models.SET_NULL, null=True)
     active = models.BooleanField(default=True)
+    img = models.URLField(max_length=500, blank=True, null = True)
 
     def __str__(self):
         return self.title + ' (' + str(self.id) + ')'

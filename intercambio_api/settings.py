@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'belongings',
     'categories',
     'offers',
+    'datafaker',
 ]
 
 MIDDLEWARE = [

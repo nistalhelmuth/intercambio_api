@@ -11,4 +11,4 @@ class Offer(models.Model):
     offered_in = models.ForeignKey(Post, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.offered_in + ' (' + str(self.id) + ')'
+        return str(self.offered_in) + ' (' + str(self.id) + ')'
