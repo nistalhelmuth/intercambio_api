@@ -14,6 +14,7 @@ ROUTER.register(r'users', userViews.UserViewSet)
 ROUTER.register(r'belongings', belongingViews.BelongingViewSet)
 ROUTER.register(r'posts', postViews.PostViewSet)
 ROUTER.register(r'offers', offerViews.OfferViewSet)
+ROUTER.register(r'belongings_per_offer', offerViews.BelongingsPerOfferViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
