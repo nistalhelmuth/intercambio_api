@@ -28,6 +28,7 @@ class Command(BaseCommand):
                 str(random.randint(0, 7)) + '.jpg'
             new_user = User(first_name=first_name, last_name=last_name, username=username,
                             password=PASSWORD, email=email, age=age, phone=phone, rating=RATING, img=img)
+            new_user.set_password(PASSWORD)
             new_user.save()
 
         for b in range(30):
