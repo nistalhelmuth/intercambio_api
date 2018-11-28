@@ -13,7 +13,12 @@ class OfferViewSet(viewsets.ModelViewSet):
         post_id = request.query_params.get('post')
         post = Post.objects.get(pk=post_id)
         offers = models.Offer.objects.filter(offered_in=post).order_by('date')
-        return Response(serializers.OfferSerializer(offers, many=True).data)
+        return Response(serializers.OfferSerializerFull(offers, many=True).data)
+
+    def get_serializer_class(self):
+        if self.action == 'list':
+            return serializers.OfferSerializerFull
+        return serializers.OfferSerializer
 
 class BelongingsPerOfferViewSet(viewsets.ModelViewSet):
     queryset = models.BelongingsPerOffer.objects.all()
@@ -24,4 +29,9 @@ class BelongingsPerOfferViewSet(viewsets.ModelViewSet):
         offer_id = request.query_params.get('offer')
         offer = models.Offer.objects.get(pk=offer_id)
         belongings = models.BelongingsPerOffer.objects.filter(offer=offer)
-        return Response(serializers.BelongingsPerOfferSerializer(belongings, many=True).data)
+        return Response(serializers.BelongingsPerOfferSerializerFull(belongings, many=True).data)
+
+    def get_serializer_class(self):
+        if self.action == 'list':
+            return serializers.BelongingsPerOfferSerializerFull
+        return serializers.BelongingsPerOfferSerializer
