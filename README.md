@@ -1,2 +1,2 @@
 # API for the Bartering Project
-API for Web Development course final project.
+REST API for the Web Development course final project. This part of the project was made using the Django framework.
